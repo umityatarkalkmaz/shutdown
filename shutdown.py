@@ -11,7 +11,7 @@ def shutdown_computer():
 def cancell():
     os.system(f"shutdown /a")
 root = tk.Tk()
-root.title("Pc kapa")
+root.title("Shutdown")
 
 label = tk.Label(root, text="Text the shutdown time in seconds:")
 label.grid(row=0, column=0, padx=10, pady=10)
