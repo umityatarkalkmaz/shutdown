@@ -4,7 +4,7 @@ import os
 def shutdown_computer():
     time = entry.get()
     if time == '' or not time.isnumeric() :
-        error_label.config(text="Saniye cinsinden bir süre girin.")
+        error_label.config(text="Text the time in seconds.")
         return
     else:
         os.system(f"shutdown /s /t {time}")
@@ -13,7 +13,7 @@ def cancell():
 root = tk.Tk()
 root.title("Pc kapa")
 
-label = tk.Label(root, text="Kapatma süresibi saniye cinsinden girin:")
+label = tk.Label(root, text="Text the shutdown time in seconds:")
 label.grid(row=0, column=0, padx=10, pady=10)
 
 entry = tk.Entry(root)
