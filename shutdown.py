@@ -1,15 +1,20 @@
 import tkinter as tk
-import os
+import subprocess
+
 
 def shutdown_computer():
     time = entry.get()
-    if time == '' or not time.isnumeric() :
+    if time == '' or not time.isnumeric():
         error_label.config(text="Text the time in seconds.")
         return
     else:
-        os.system(f"shutdown /s /t {time}")
-def cancell():
-    os.system(f"shutdown /a")
+        subprocess.Popen(f"shutdown /s /t {time}")
+
+
+def cancel():
+    subprocess.Popen(f"shutdown /a")
+
+
 root = tk.Tk()
 root.title("Shutdown")
 
@@ -21,8 +26,8 @@ entry.grid(row=0, column=1, padx=10, pady=10)
 
 yes_button = tk.Button(root, text="Yes", command=shutdown_computer)
 yes_button.grid(row=1, column=0, padx=10, pady=10)
-cancell_button = tk.Button(root, text="Cancell", command=cancell)
-cancell_button.grid(row=1, column=1, padx=10, pady=10)
+cancel_button = tk.Button(root, text="Cancel", command=cancel)
+cancel_button.grid(row=1, column=1, padx=10, pady=10)
 no_button = tk.Button(root, text="No", command=root.quit)
 no_button.grid(row=1, column=2, padx=10, pady=10)
 
