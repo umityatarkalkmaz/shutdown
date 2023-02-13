@@ -7,3 +7,5 @@ In this file, I can set the time as I want and it also uses a gui.
 ```
 pyinstaller shutdown.py --onefile --noconsole
 ```
+### Note
+Builded file doesn't work some times.
