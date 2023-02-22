@@ -34,7 +34,7 @@ VSVersionInfo(
         StringStruct(u'FileDescription', u'Shutdown your Pc'),
         StringStruct(u'FileVersion', u'0.0.1.0'),
         StringStruct(u'InternalName', u'PowerOff'),
-        StringStruct(u'LegalCopyright', u''),
+        StringStruct(u'LegalCopyright', u'MIT Licence'),
         StringStruct(u'OriginalFilename', u'poweroff.exe'),
         StringStruct(u'ProductName', u'PowerOff'),
         StringStruct(u'ProductVersion', u'0.0.1.0')])
