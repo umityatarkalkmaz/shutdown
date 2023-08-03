@@ -1,6 +1,12 @@
-Version: 0.0.1.0
+Version: 0.0.2.0
+CompanyName: Ümit Yatarkalkmaz
 FileDescription: Shutdown your Pc
 InternalName: PowerOff
 LegalCopyright: MIT Licence
 OriginalFilename: poweroff.exe
 ProductName: PowerOff
+Translation:
+  - langID: 0
+    charsetID: 1200
+  - langID: 1033
+    charsetID: 1252
