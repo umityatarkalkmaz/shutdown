@@ -6,9 +6,15 @@ on:
     paths-ignore:
       - '**.md'
       - 'docs/**'
-      - '.gitignore'
-      - 'LICENSE'
       - 'memory-bank/**'
+      - '.gitignore'
+      - '.github/**/*.md'
+      - 'LICENSE'
+      - 'agent.md'
+      - 'metadata.yml'
+      - 'file_version_info.txt'
+      - '**.txt'
+      - '!requirements.txt'
 
 jobs:
   build:
