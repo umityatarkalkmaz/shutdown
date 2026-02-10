@@ -1,11 +1,36 @@
-# shutdown
-shutdown pc use python
-When I shut down my Windows device normally, it wouldn't shut down completely.
-I useing .bat file but change all time timing.
-In this file, I can set the time as I want and it also uses a gui.
-## Build
+# Shutdown Timer
+
+A simple, modern, cross-platform shutdown timer built with Python and PyQt6.
+
+## Features
+
+- **Modern UI**: Dark theme, clean interface.
+- **Two Modes**:
+  - **Duration**: Set a timer for *X* hours, minutes, seconds.
+  - **Specific Time**: Schedule a shutdown at a specific clock time (e.g., 03:30).
+- **Cross-Platform**: Works on Windows, macOS, and Linux.
+- **Safe**: Uses native OS commands (`shutdown`) for reliable execution.
+
+## Requirements
+
+- Python 3.x
+- PyQt6
+
+## How to Run
+
+1.  **Install Dependencies**:
+    ```bash
+    pip install PyQt6
+    ```
+
+2.  **Run the Application**:
+    ```bash
+    python main.py
+    ```
+
+## Build (Optional)
+
+To create a standalone executable:
+```bash
+pyinstaller main.py -F -w -n ShutdownTimer --add-data "shutdown_package:shutdown_package"
 ```
-pyinstaller shutdown.py -F -w --version-file file_version_info.txt -n poweroff
-```
-### Note
-If name of the exe file is shutdown, it doesn't work because the commands required to run the shutdown command and shutdown.exe are the same. Instead of turning off the computer, the shutdown.exe will turn itself on again.

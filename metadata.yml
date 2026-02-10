@@ -1,10 +1,10 @@
-Version: 0.0.2.0
+Version: 2.1.0.0
 CompanyName: Ümit Yatarkalkmaz
-FileDescription: Shutdown your Pc
-InternalName: PowerOff
+FileDescription: Modern Shutdown Timer
+InternalName: ShutdownTimer
 LegalCopyright: MIT Licence
-OriginalFilename: poweroff.exe
-ProductName: PowerOff
+OriginalFilename: ShutdownTimer.exe
+ProductName: Shutdown Timer
 Translation:
   - langID: 0
     charsetID: 1200
