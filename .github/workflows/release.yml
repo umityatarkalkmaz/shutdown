@@ -35,12 +35,12 @@ jobs:
     - name: Build with PyInstaller (Windows)
       if: runner.os == 'Windows'
       run: |
-        pyinstaller main.py -F -w -n ShutdownTimer.exe --add-data "shutdown_package;shutdown_package" --version-file file_version_info.txt
+        pyinstaller main.py -F -w -n ShutdownTimer --add-data "shutdown_package;shutdown_package" --version-file file_version_info.txt
 
     - name: Build with PyInstaller (macOS/Linux)
       if: runner.os != 'Windows'
       run: |
-        pyinstaller main.py -F -w -n ShutdownTimer --add-data "shutdown_package:shutdown_package"
+        pyinstaller main.py -F -w -n ShutdownTimer-${{ runner.os }} --add-data "shutdown_package:shutdown_package"
 
     - name: Upload Artifact
       uses: actions/upload-artifact@v4
@@ -76,5 +76,5 @@ jobs:
         prerelease: false
         files: |
           artifacts/ShutdownTimer-windows-latest/ShutdownTimer.exe
-          artifacts/ShutdownTimer-macos-latest/ShutdownTimer
-          artifacts/ShutdownTimer-ubuntu-latest/ShutdownTimer
+          artifacts/ShutdownTimer-macos-latest/ShutdownTimer-macOS
+          artifacts/ShutdownTimer-ubuntu-latest/ShutdownTimer-Linux
