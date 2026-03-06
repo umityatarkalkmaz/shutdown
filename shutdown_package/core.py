@@ -56,7 +56,28 @@ class ShutdownManager:
                 logger.info("Shutdown scheduled via Windows in %d seconds.", seconds)
                 return True
 
-            elif self.os_type in ("Linux", "Darwin"):
+            elif self.os_type == "Linux":
+                # Linux shutdown expects "now" or +MINUTES rather than HH:MM.
+                # Round up so short timers (<60s) still schedule in the future.
+                if seconds == 0:
+                    shutdown_arg = "now"
+                else:
+                    minutes = (seconds + 59) // 60
+                    shutdown_arg = f"+{minutes}"
+
+                subprocess.run(
+                    ["shutdown", "-h", shutdown_arg],
+                    check=True,
+                    stderr=subprocess.PIPE,
+                )
+                logger.info(
+                    "Shutdown scheduled via Linux with argument %s (%d seconds).",
+                    shutdown_arg,
+                    seconds,
+                )
+                return True
+
+            elif self.os_type == "Darwin":
                 dt_now = datetime.now()
                 dt_target = dt_now + timedelta(seconds=seconds)
                 time_str = dt_target.strftime("%H:%M")
@@ -67,7 +88,7 @@ class ShutdownManager:
                     stderr=subprocess.PIPE,
                 )
                 logger.info(
-                    "Shutdown scheduled via Unix at %s (%d seconds).",
+                    "Shutdown scheduled via macOS at %s (%d seconds).",
                     time_str,
                     seconds,
                 )
