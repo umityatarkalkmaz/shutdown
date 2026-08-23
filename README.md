@@ -95,4 +95,10 @@ warning.
 calls `int()`, so `3.7` silently becomes 3 seconds. And because `bool` is a
 subclass of `int` in Python, `True` passes the check and schedules 1 second.
 
+**The `1h` preset schedules 59 minutes.** `set_preset` (`gui.py:136`) calls
+`self.minutes.setValue(minutes)` with the raw preset value, but the minutes
+spinner is `setRange(0, 59)` (`gui.py:86`), so Qt clamps 60 down to 59. The
+button is labelled `1h` and the field then reads 59; nothing warns that the
+request changed. The 15m and 30m presets are unaffected.
+
 **There are no tests.**
